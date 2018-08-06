@@ -1,0 +1,116 @@
+//
+// Animation Classes
+//
+.reset-anim-delay-duration {
+  @include transition(all 60ms cubic-bezier(.24, .42, .59, .88) 0ms);
+}
+
+.clear-anim-delay-duration {
+  @include transition(all 2ms ease 0ms);
+}
+
+@keyframes anim-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.anim-spin {
+  animation: anim-spin 2s infinite linear;
+  line-height: 100%;
+  transform-origin: 50% calc(50% - .5px);
+}
+
+.anim-spin-fast {
+  animation: anim-spin 550ms infinite linear;
+  line-height: 100%;
+  transform-origin: 50% calc(50% - .5px);
+}
+
+@keyframes shining-rays {
+  0% {
+    filter: opacity(.8);
+    transform: scale(.9) rotate(0deg);
+  }
+
+  20% {
+    filter: opacity(.5);
+    transform: scale(1.05) rotate(70deg);
+  }
+
+  40% {
+    filter: opacity(.8);
+    transform: scale(.75) rotate(150deg);
+  }
+
+  60% {
+    filter: opacity(.7);
+    transform: scale(1.08) rotate(220deg);
+  }
+
+  80% {
+    filter: opacity(.6);
+    transform: scale(.89) rotate(290deg);
+  }
+
+  100% {
+    filter: opacity(.8);
+    transform: scale(.9) rotate(360deg);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  20% {
+    opacity: .6;
+    transform: scale(.5);
+  }
+
+  97% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+
+  98% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(.1);
+  }
+}
+
+// Donation Success Avatars
+@keyframes shiftySlideyIn {
+  0% {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shiftySlideyOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}

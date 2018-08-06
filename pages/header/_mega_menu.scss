@@ -1,0 +1,224 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+// Mobile Menu
+@media screen and (max-width: $tablet-portrait - 1) {
+
+  .mega-menu {
+    display: none;
+  }
+
+}
+
+
+// ------------------------- START DESKTOP STYLE -----------------------------------
+@media screen and (min-width: $tablet-portrait) {
+
+  .mega-menu {
+    border-top: 1px solid $grey05;
+    box-shadow: 0 2px 10px -4px transparentize($black, .8);
+    display: none;
+    position: relative;
+    top: 1px;
+
+    .constrain {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  .mega-menu-section {
+    padding: 20px 0;
+    width: 25%;
+
+    &:nth-child(1) {
+      order: 10;
+    }
+
+    &:nth-child(2) {
+      order: 20;
+    }
+
+    &:nth-child(3) {
+      order: 30;
+    }
+
+    &:nth-child(4) {
+      order: 40;
+    }
+
+    &:nth-child(5) {
+      order: 50;
+    }
+
+    &.no-links {
+      h3, a {
+        display: none;
+      }
+
+      &:nth-child(2) {
+        order: 31;
+      }
+    }
+
+    h3 {
+      cursor: pointer;
+      font-size: 14pt;
+      margin: 0 0 10px;
+    }
+
+    .item-more-link {
+      color: $grey02;
+      display: inline-block;
+      font-size: 10pt;
+      padding: $side-gutters 0;
+
+      &.active,
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    &.full-width {
+      border-top: 1px solid $grey05;
+      flex-basis: 100%;
+      width: 100%;
+
+      .mega-menu-items {
+        display: flex;
+        flex-wrap: wrap;
+
+        .mega-menu-item {
+          width: 25%;
+          box-sizing: border-box;
+
+          span {
+            max-width: 200px;
+          }
+        }
+      }
+    }
+  }
+
+  .mega-menu-item {
+    cursor: pointer;
+    list-style: none;
+    padding: 5px 15px 5px 0;
+    position: relative;
+    white-space: nowrap;
+    min-height: 25px;
+
+    a {
+      color: $grey01;
+      display: block;
+      width: 100%;
+      position: relative;
+
+      &.active {
+        color: $primary;
+      }
+    }
+
+    picture {
+      margin: auto;
+      min-width: 40px;
+      max-width: 40px;
+      width: 40px;
+
+      .picture {
+        max-height: 25px;
+        min-height: 25px;
+        min-width: 40px;
+        max-width: 40px;
+        width: 40px;
+        overflow: hidden;
+
+        img {
+          max-height: 25px;
+          min-height: 25px;
+          min-width: 40px;
+          max-width: 40px;
+          width: 40px;
+        }
+      }
+    }
+
+    .icon {
+      color: $primary;
+    }
+
+    span {
+      padding: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: absolute;
+      top: 4px;
+      left: 50px;
+      right: 0;
+    }
+
+    &.active,
+    &:hover {
+      color: $primary;
+
+      a {
+        color: $primary;
+      }
+    }
+
+    .mega-menu-items-main & {
+      a {
+        font-size: 14pt;
+      }
+
+      span {
+        position: static;
+        padding: 0 10px;
+      }
+
+      picture {
+        margin: auto;
+        max-width: auto;
+        width: auto;
+
+        .picture {
+          max-height: 25px;
+          min-height: 25px;
+          max-width: auto;
+          width: auto;
+          overflow: hidden;
+
+          img {
+            max-height: 25px;
+            min-height: 25px;
+            max-width: auto;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .browser-ie,
+  .browser-edge {
+
+    .mega-menu-item {
+      display: block;
+
+      a,
+      picture {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // ------------------------- END DESKTOP STYLE -----------------------------------
+}

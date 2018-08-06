@@ -1,0 +1,117 @@
+@import '../../../core/colors';
+@import '../../../core/mixins';
+@import '../../../core/variables';
+
+.flex-1, .flex-2 {
+  .widget-items {
+    .context {
+      padding: 0;
+    }
+  }
+}
+
+.widget-items {
+
+  .context {
+    padding: 0 12px;
+  }
+
+  .widgets {
+    margin: auto;
+    max-width: 388px;
+    width: 100%;
+
+    &.widgets-loading {
+      min-height: 300px;
+    }
+
+    &.widgets-ended {
+      margin-bottom: 100px;
+    }
+  }
+
+  .feed-item {
+    @include transition(all, 320ms, ease-in-out);
+    opacity: 0;
+    position: absolute;
+    transform: translate3d(321px, 0, 0);
+    width: 100%;
+    margin-bottom: 13px;
+
+    &[data-packed] {
+      opacity: 1;
+    }
+
+    &.feed-item-spacer {
+      height: 0;
+      display: none;
+      z-index: 0;
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .feed-items-load {
+    @include transition(all, 320ms, ease-in-out);
+    opacity: 0;
+
+    &.feed-items-loading {
+      opacity: 1;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-portrait) {
+
+  .widget-items {
+
+    .widgets {
+      max-width: 740px;
+    }
+
+    .feed-item {
+      width: 358px;
+
+      &.feed-item-2x {
+        width: 740px; // double-wide widget spans 358 * 2 + 24px gutter
+      }
+
+      &.feed-item-spacer {
+        display: block;
+        height: 146px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-sm) {
+
+  .widget-items {
+
+    .widgets {
+      max-width: 1000px;
+    }
+
+    .feed-item {
+      width: 318px;
+
+      &.feed-item-2x {
+        width: 659px; // double-wide widget spans 318 * 2 + 23px gutter
+      }
+
+      &.feed-item-spacer {
+        display: block;
+        height: 146px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait) {
+  .event-details-layout-table .event-stories-td .context
+  {
+    padding: 24px 12px 0 !important;
+  }
+  
+}

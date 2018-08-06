@@ -1,0 +1,61 @@
+@import 'variables';
+@import 'mixins';
+
+// Extras
+.fields {
+  padding: 0;
+}
+
+.form-title {
+  font-size: 16pt;
+  font-weight: 600;
+  text-align: center;
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background: $white url('#{$base-cdn-url}/select-chevron-down.png') right 5px center no-repeat;
+  background-size: 15px 16px;
+  border: 1px solid $grey05;
+  border-radius: $border-radius;
+  color: $grey02;
+  cursor: pointer;
+  display: inline-block;
+  height: 45px;
+  margin: 0;
+  outline: none;
+  padding: 7px 16px;
+  width: 100%;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.input-select {
+  position: relative;
+
+  select {
+    min-height: 40px;
+  }
+}
+
+@media screen and (min-width: $tablet-portrait) {
+
+  .fields {
+    padding: 0 $side-gutters;
+  }
+
+  .input-select {
+    position: relative;
+
+    &::after {
+      bottom: 0;
+      top: 15px;
+    }
+  }
+}
+
+// @media screen and (min-width: $desktop-sm) {
+// }

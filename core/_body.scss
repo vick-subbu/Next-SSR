@@ -1,0 +1,78 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: $sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  &.has-active-modal {
+    overflow: hidden;
+  }
+}
+
+.main {
+  background: $mainbackground;
+  flex: 1;
+  min-width: 320px;
+
+  &.fixed-header {
+    padding-top: 55px;
+  }
+}
+
+.hide-mobile {
+  display: none;
+}
+
+.browser-ie,
+.browser-edge {
+  .main {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: $tablet-portrait) {
+
+  .main {
+
+    &.fixed-header {
+      padding-top: 55px;
+    }
+  }
+
+  .hide-mobile {
+    display: flex;
+  }
+
+  .hide-tablet {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $desktop-sm) {
+
+  .hide-mobile {
+    display: flex;
+  }
+
+  .hide-tablet {
+    display: flex;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+}
+
+.browser-ie {
+
+  .main {
+    flex: 1 1 auto;
+    margin-bottom: 0px;
+  }
+}

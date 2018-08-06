@@ -1,0 +1,398 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+.constrain {
+  display: flex;
+}
+
+.menu {
+  callout {
+    .content {
+      right: 126px !important;
+    }
+  }
+}
+
+// Mobile Menu
+@media screen and (max-width: $tablet-portrait - 1) {
+
+  /////// mobile container styles!
+  .constrain {
+    padding: 10px 12px;
+    align-items: center;
+  }
+
+  .header-left,
+  .header-right {
+    display: flex;
+  }
+
+  .header-right {
+    flex: 0.7 1 0 !important;
+    justify-content: flex-end;
+  }
+
+
+  // Main Menu
+  .menu-mobile {
+    position: relative;
+  }
+
+  .menu-checkbox {
+    display: none;
+    margin: 10px;
+    opacity: 0;
+    position: absolute;
+
+    &:checked + .menu {
+      display: block;
+      max-height: calc(100vh - 55px);
+      opacity: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      visibility: visible;
+    }
+
+    &:checked + .menu + .menu-toggle {
+      .menu-toggle-icon {
+        border-color: transparent;
+        transition-delay: 0s;
+
+        &::before,
+        &::after {
+          transition-delay: 0ms;
+        }
+
+        &::before {
+          @include transform(translateY(6px) rotate(135deg));
+        }
+
+        &::after {
+          @include transform(translateY(-6px) rotate(-135deg));
+        }
+      }
+    }
+  }
+
+  .menu-toggle {
+    cursor: pointer;
+    display: block;
+    height: 33px;
+    position: relative;
+    width: 38px;
+    margin-right: 15px;
+  }
+
+  .menu-toggle-label {
+    bottom: -17px;
+    color: #9C9C9C;
+    display: block;
+    font-size: 13px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .menu-toggle-icon {
+    border-bottom: 3px solid #9C9C9C;
+    display: block;
+    padding-top: 8px;
+    transition-delay: .125s;
+    transition-duration: .25s;
+    transition-property: transform, border-color;
+    transition-timing-function: cubic-bezier(.5, -.5, .5, 1.5);
+
+    &::before,
+    &::after {
+      border-top: 3px solid #9C9C9C;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform-origin: center;
+      transition-delay: 0;
+      transition-duration: .25s;
+      transition-property: transform, border-color;
+      transition-timing-function: cubic-bezier(.5, -.5, .5, 1.5);
+    }
+
+    &::before {
+      top: 2px;
+    }
+
+    &::after {
+      bottom: 16px;
+    }
+  }
+
+  // Menu notification button
+  .menu-notification {
+    margin-right: 20px;
+    text-align: center;
+
+    a {
+      color: $grey00;
+      font-size: 22pt;
+      padding: 0 $side-gutters;
+
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+
+
+  // Menu View
+  .menu {
+    @include transition(all, 260ms, ease-in-out);
+    background: $grey01;
+    box-shadow: 0 11px 30px -10px transparentize($black, .8);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    visibility: hidden;
+    width: 100%;
+
+    .menu-heading {
+      padding: 20px $side-gutters 10px;
+	    background: #333;
+
+      h5 {
+        color: $white;
+        font-size: 9pt;
+        letter-spacing: $letter-spacing;
+        text-transform: uppercase;
+      }
+
+      .btn-sign-in {
+        margin: 10px auto;
+        width: 70%;
+      }
+    }
+
+    .menu-item {
+      border-bottom: 1px solid $grey00;
+         
+      a {
+        border-bottom: 0;
+        color: $white;
+        display: block;
+        font-size: 14pt;
+        margin: 0;
+        padding: 15px $side-gutters;
+      }
+
+      .icon {
+        color: $primary;
+        display: inline-block;
+        font-size: 15pt;
+        margin-right: 5px;
+        text-align: center;
+        width: 22px;
+      }
+
+      &.active {
+        background: $primary;
+      }
+
+      &:last-child {
+        a {
+          border-bottom: 0;
+        }
+      }
+    }
+    .second-level-menu {
+      padding-bottom: 50px;
+      background-color: #404040;
+    }
+
+    a {
+
+      &.active {
+        background: $primary;
+        color: $grey01;
+
+        .icon {
+          color: $grey01;
+        }
+      }
+    }
+
+    &.menu-desktop {
+      display: none;
+    }
+  }
+
+  .submenu {
+
+    .submenu-item {
+      background: lighten($grey01, 5%);
+      border-top: 1px solid lighten($grey00, 8%);
+
+      a {
+        border-bottom: 0;
+        color: $white;
+        font-size: 14pt;
+        letter-spacing: $letter-spacing;
+        margin: 0;
+      }
+    }
+
+    a {
+
+      &.active {
+        color: $grey01;
+      }
+    }
+  }
+
+
+}
+
+
+
+// ------------------------- START DESKTOP STYLE -----------------------------------
+@media screen and (min-width: $tablet-portrait) {
+
+  // remove old
+  .menu-toggle,
+  .menu-checkbox-id {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    height: 54px;
+
+    &.menu-mobile {
+      display: none;
+    }
+  }
+
+  .menu-item {
+    list-style: none;
+    position: relative;
+
+    a {
+      border-bottom: 2px solid transparent;
+      color: #505050;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin: 0 5px -1px;
+      padding: 17px 5px;
+      text-transform: uppercase;
+    }
+    .signin-btn {
+      text-transform: uppercase;
+      color: #52C1B2;
+      display: inline-block;
+    }
+    .createevent{
+      color: $primary;
+    }
+
+    &.active,
+    &:hover {
+      a {
+        border-bottom-color: $primary;
+        color: $primary;
+      }
+
+      .submenu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .submenu-item {
+
+        a {
+          color: $grey00;
+        }
+
+        &.active,
+        &:hover {
+          a {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      a {
+        margin-right: 0;
+      }
+    }
+
+    &.menu-notifications {
+      a {
+        margin: 0 0 -1px;
+        padding: 21px $side-gutters 19px;
+      }
+
+      .icon {
+        font-size: 21pt;
+      }
+    }
+
+    &.menu-desktop-toggle {
+      a {
+        padding: 15px 5px 15px 5px;
+      }
+
+      .icon {
+        font-size: 26px;
+        margin: 0 5px;
+        position: relative;
+        top: 0;
+      }
+    }
+  }
+
+  .submenu {
+    @include transition(all, 260ms, ease-in-out);
+    background: $white;
+    box-shadow: 0 1px 3px transparentize($black, .9);
+    min-width: 240px;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 51px;
+    visibility: hidden;
+
+    .submenu-item {
+      border-bottom: 1px solid $grey05;
+
+      a {
+        border-bottom: 0;
+        color: $grey00;
+        font-size: 12pt;
+        margin: 0;
+        padding: 12px;
+        display: inline-block;
+      }
+
+      &:last-child {
+        a {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // ------------------------- END DESKTOP STYLE -----------------------------------
+}

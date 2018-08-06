@@ -1,0 +1,437 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+$backdrop: #e6e6e6;
+
+.platform-footer {
+    background: $backdrop;
+    padding: 25px $side-gutters 75px;
+    text-align: center;
+
+    .constrain {
+        @include transition(opacity 120ms ease-in-out);
+        flex-direction: column;
+        opacity: 1;
+    }
+
+    h5 {
+        color: $grey00;
+        font-size: 13pt;
+        font-weight: 400;
+        margin: 15px 0 10px;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+    }
+
+    .brand-name {
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    &.fixed {
+        .constrain {
+            flex-direction: column;
+        }
+    }
+
+    &[ng-cloak] {
+        display: block;
+
+        .constrain {
+            opacity: 0;
+        }
+    }
+}
+
+.footer-brand {
+
+    &.brand-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        width: 20%;
+    }
+
+    .brand-copyright {
+        color: $grey02;
+        display: block;
+        font-size: 8.5pt;
+        margin: 20px 0 0;
+        text-decoration: underline;
+    }
+
+    .brand-copyrightah {
+        color: $grey02;
+        display: block;
+        font-size: 8.5pt;
+        margin: 20px 0 0;
+    }
+}
+
+.footer-nosupport {
+    text-align: center !important;
+}
+
+.content_submission {
+    padding: 0 15px;
+}
+
+.cont_agreement {
+    margin-top: 10px !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .content_submission {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    .footer-nosupport {
+        text-align: right !important;
+    }
+}
+
+.footer-meta {
+    display: flex;
+    justify-content: center;
+
+    a {
+        color: $grey04;
+        flex: 1 1 0;
+        letter-spacing: $letter-spacing;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    b {
+        color: $grey04;
+        font-weight: 100;
+        padding: 0 10px;
+    }
+
+    .service-info {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    &.meta-empowered {
+        margin-top: 40px;
+
+        .service-info {
+            margin-top: 0;
+        }
+    }
+
+    &.meta-stacked {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-brand {
+        margin: 15px 0 0;
+        max-width: 100%;
+
+        h5 {
+            font-size: 8.5pt;
+        }
+
+        .logo {
+            margin: 7px auto $side-gutters;
+            width: 200px;
+        }
+    }
+}
+
+.browser-ie,
+.browser-edge {
+    .platform-footer {
+        display: block;
+    }
+}
+
+
+@media screen and (min-width: $mobile) {
+    .platform-footer {
+        padding: 25px $side-gutters;
+
+        .constrain {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        h5 {
+            margin: 0 0 10px;
+        }
+    }
+
+    .brand-meta {
+
+        h5 {
+            text-align: left;
+        }
+    }
+
+    .footer-meta {
+
+        .service-info {
+            margin-top: 0;
+        }
+
+        &.meta-empowered {
+            margin-top: 0;
+        }
+
+        .footer-brand {
+            margin: 0;
+        }
+    }
+
+}
+
+
+
+.platform-footer {
+
+    .constrain.white-label-footer {
+        @include transition(opacity 120ms ease-in-out);
+        flex-direction: row;
+        opacity: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        h5 {
+            color: $grey00;
+            font-size: 13pt;
+            font-weight: 400;
+            margin: 15px 0 10px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+        }
+
+        .brand-name {
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        .footer-brand {
+
+            &.brand-meta {
+                align-items: flex-start;
+                flex-direction: column;
+                width: 20%;
+            }
+
+            .brand-copyright {
+                color: $grey02;
+                display: block;
+                font-size: 8.5pt;
+                margin: 20px 0 0;
+                text-decoration: underline;
+            }
+        }
+
+        .footer-brand {
+            max-width: 100%;
+            height: 30px;
+            margin: 30px 0;
+
+            h5 {
+                font-size: 11px;
+                padding: 0;
+                margin: auto 5px;
+                display: inline-block;
+                color: #333;
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: .06em;
+                vertical-align: -3px;
+            }
+
+            .logo {
+                display: inline-block;
+                margin: -7px 5px 0;
+                height: 21px;
+                width: 150px;
+                background: url(https://cotribute.s3.amazonaws.com/p/images/cotribute_dark_logo.png) no-repeat 0 0;
+                background-size: 100%;
+                text-indent: -9999px;
+            }
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 0;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column;
+
+            a {
+                color: $grey04;
+                flex: 1 1 0;
+                letter-spacing: $letter-spacing;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+
+            b {
+                color: $grey04;
+                font-weight: 100;
+                padding: 0 10px;
+            }
+
+            .service-info {
+                margin: 50px 0;
+                width: 100%;
+            }
+
+            .footer-brand {
+                margin: 15px 0;
+            }
+
+            &.meta-empowered {
+                margin-top: 40px;
+
+                .service-info {
+                    margin-top: 0;
+                }
+            }
+
+            &.meta-stacked {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .footer-meta {
+            max-width: 50%;
+            min-width: 500px;
+
+            .service-info {
+                margin-top: 0;
+            }
+            .support {
+                color: #9b9b9b;
+                display: inline-block;
+                letter-spacing: .06em;
+            }
+            .policy {
+                display: inline-block;
+            }
+
+            &.meta-empowered {
+                margin-top: 0;
+            }
+
+            .footer-brand {
+                margin: 0;
+                display: block;
+                width: 100%;
+                text-align: right;
+
+                .logo {
+                    margin: -7px 5px -7px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tablet-portrait) {
+    .platform-footer .constrain.white-label-footer {
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .platform-footer .constrain.white-label-footer .footer-meta {
+        max-width: 50%;
+        min-width: 300px;
+    }
+}
+
+@media screen and (min-width: 563px) and (max-width: 1024px) {
+    .platform-footer .constrain.white-label-footer .footer-meta .support {
+        color: #9b9b9b;
+        display: block;
+        letter-spacing: .06em;
+        text-align: right;
+    }
+
+    .platform-footer .constrain.white-label-footer .footer-meta .support_divider {
+        display: none;
+    }
+    .platform-footer .constrain.white-label-footer .footer-meta .footer-brand {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    .platform-footer .constrain.white-label-footer .footer-meta .policy {
+        display: block;
+        text-align: right;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 562px) {
+    .platform-footer .constrain.white-label-footer .footer-brand .logo {
+
+        margin: -7px 5px -7px;
+    }
+    .platform-footer .constrain.white-label-footer .footer-meta .support_divider {
+        display: none;
+    }
+    .platform-footer .constrain.white-label-footer .footer-meta .support {
+        color: #9b9b9b;
+        display: block;
+        letter-spacing: .06em;
+        text-align: center;
+    }
+    .platform-footer .constrain.white-label-footer .footer-meta .policy {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .platform-footer .constrain.white-label-footer .footer-meta .footer-brand {
+        margin: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+.copy_notice {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .platform-footer {
+        .constrain.mobileview {
+            display: none;
+        }
+    }
+    .footer_policy {
+    margin: 60px 0 0 !important;
+}
+    .thrv_foot_logo {
+        margin: 0 auto;
+        width: 140px;
+    }
+}

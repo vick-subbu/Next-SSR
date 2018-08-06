@@ -1,0 +1,94 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+//
+// date-time
+// a component for verbal timestamps
+//
+date-time {
+  display: block;
+  padding: 0 0 4px;
+  position: relative;
+
+  svg {
+    display: inline-block;
+    fill: $grey04;
+    height: 18px;
+    vertical-align: top;
+    width: 23px;
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+  .title {
+    color: $grey01;
+    display: inline-block;
+    font-size: 11pt;
+    line-height: 15pt;
+    margin: auto 5px;
+    max-width: 79%;
+    min-width: 70px;
+
+    span {
+      display: block;
+    }
+
+    small {
+      color: $grey01;
+      font-weight: 300;
+    }
+
+    &:empty {
+      background: transparentize($black, .9);
+      border-radius: $border-radius;
+      height: 10px;
+      margin: 5px 5px 0;
+      width: 55%;
+    }
+  }
+
+  &.long {
+
+    strong {
+      font-weight: 600;
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &.extended {
+    .title,
+    title {
+      margin-top: -3px;
+    }
+  }
+
+  .zero-state & {
+
+    strong,
+    span {
+
+      &:empty {
+        background: transparentize($black, .9);
+        border-radius: $border-radius;
+        height: 10px;
+        margin: auto 0;
+        width: 55%;
+      }
+    }
+
+    strong {
+
+      &:empty {
+        display: inline-block;
+        width: 180px;
+      }
+    }
+  }
+
+}

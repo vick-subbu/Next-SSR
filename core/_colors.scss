@@ -1,0 +1,63 @@
+/**
+ * Colors
+ *
+ */
+$fullblack:                 #000 !default;
+$black:                     #222 !default;
+$white:                     #fff !default;
+// $primary:                   #4fc5b3 !default; // BAD for UX
+$primary:                   #2272ba !default; // Better!!
+$thriventtooltip:           #c8102e;
+$lightprimary:              #7bd4c6 !default;
+$darkprimary:               #366 !default;
+$bg-primary:								#52c1b2 !default;
+$disabled:                  #d2d2d2 !default;
+
+
+/**
+ * Greyscale Colors
+ */
+$grey00:                          #26272b !default; // Super Dark Grey
+$grey01:                          #333 !default; // Dark Grey
+$grey02:                          #686868 !default; // Darkish Grey
+$grey04:                          #9b9b9b !default; // Middle Grey (Not Middle Earth)
+$grey045:                         #D8D8D8 !default;
+$grey05:                          #e5e5e5 !default; // Medium Grey
+$grey08:                          #e2e2e2 !default; // light Grey
+$grey09:                          #f7f6f6 !default; // super light Grey
+
+/**
+ * Specific Colors
+ */
+$mainbackground:                  #f6f6f6 !default;
+$lightorange:                     #fbb14a !default;
+$menu-background:                 #36424e !default;
+$submenu-background:              #485a68 !default;
+$alert-default:                   #c3d1d9 !default;
+$alert-success:                   #3eb56e !default;
+$alert-warn:                      #67a4bf !default;
+$alert-error:                     #c74444 !default;
+$lightbluishgrey:                 #eff1f7 !default; // light grey with hint of blue
+$darkbluishgrey:                  #858e98 !default;
+$picture-background:              #d4d8dc !default;
+$media-banner-light:              #ebebeb !default;
+
+/**
+ * Validation Colors
+ */
+$success:                         #8cc757 !default;
+$info:                            #55c2b2 !default;
+$error:                           #de4636 !default;
+$warn:                            #f99f1c !default;
+
+/**
+ * Social Media Colors
+ */
+$social-sms:                      #34C44C !default;
+$social-sms-shadow:               #06a    !default;
+$social-facebook:                 #3b5999 !default;
+$social-twitter:                  #00aced !default;
+$social-twitter-shadow:           #048    !default;
+$social-linkedin:                 #0281b2 !default;
+$social-email:                    $grey04 !default;
+$social-link:                     $grey04 !default;

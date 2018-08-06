@@ -1,0 +1,145 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+// Avatar sizing
+$avatar-sizes: (
+  xs: $avatar-base-size - 20,
+  sm: $avatar-base-size - 12,
+  md: $avatar-base-size,
+  mdd: $avatar-base-size + 10,
+  lg: $avatar-base-size + 0,
+  xl: $avatar-base-size * 3
+);
+
+// Generates the sizing and other variables
+@mixin create-avatar($title, $size, $margin: 5px, $has-border: true) {
+  .avatar {
+    background: $grey05;
+    border: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    height: $avatar-base-size;
+    margin: $margin;
+    overflow: hidden;
+    position: relative;
+    width: $avatar-base-size;
+    z-index: 10;
+
+    img {
+      display: block;
+      margin: 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    &.avatar-#{$title} {
+      height: $size;
+      max-height: $size;
+      max-width: $size;
+      width: $size;
+
+      img {
+        height: $size;
+        max-height: $size;
+        max-width: $size;
+        width: $size;
+      }
+    }
+  }
+}
+
+@each $size-name, $value in $avatar-sizes {
+  @include create-avatar($size-name, $value, 5px, true);
+}
+
+// exceptions
+.avatar {
+  &.initializing {
+    img {
+      display: none;
+    }
+  }
+
+  &.avatar-border {
+    border: $avatar-border-size solid transparentize($white, .9);
+
+    &.border-dark {
+      border: $avatar-border-size solid $grey04;
+    }
+
+    img {
+      margin: -$avatar-border-size 0 0 (0 - $avatar-border-size);
+    }
+  }
+
+  &.avatar-initials {
+
+    .initials {
+      color: $darkprimary;
+      font: $sans-serif;
+      font-smoothing: antialiased;
+      letter-spacing: -2px;
+      margin: 11px 0 0 -1px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      z-index: 999;
+    }
+
+    img {
+      display: none;
+    }
+
+    &.avatar-sm {
+
+      .initials {
+        font-size: 12pt;
+        letter-spacing: 0;
+        margin: auto;
+      }
+    }
+
+    &.avatar-xs {
+
+      .initials {
+        font-size: 8.5pt;
+        letter-spacing: 0;
+        line-height: 10pt;
+        margin: 7px 0 0;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+
+// .avatar-sm.avatar-initials.avatar .initials
+.browser-ie,
+.browser-edge {
+  .avatar {
+
+    &.avatar-initials {
+
+      .initials {
+        margin: 10px 0 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      &.avatar-sm,
+      &.avatar-xs {
+
+        .initials {
+          margin: 10px 0 0;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}

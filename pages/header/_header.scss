@@ -1,0 +1,479 @@
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+.platform-header {
+  @include transition(transform 120ms ease-in-out);
+  background: $white;
+  border-bottom: 1px solid $grey05;
+  box-shadow: 0 0;
+  display: block;
+  padding: 0;
+  transform: translateY(0);
+  position: fixed;
+  width: 100%;
+  padding-top: 20px;
+  z-index: 25;
+  top: 0;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 9999;
+  }
+
+  &[ng-cloak] {
+    display: block;
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+
+  .constrain {
+    justify-content: space-between;
+  }
+  .user-icon{
+    margin-right: 5px;
+  }
+
+
+  .notifications-badge {
+    position:relative;
+ }
+ .notifications-badge[data-badge]:after {
+    content:attr(data-badge);
+    position:absolute;
+    top:-1px;
+    right:-5px;
+    font-size:8px;
+    background-color:#e07587;
+    color:white;
+    width:16px;
+    height:16px;
+    text-align:center;
+    line-height:18px;
+    border-radius:50%;
+ }
+ .notifications-badge-mobile[data-badge]:after {
+  right:10px;
+
+ }
+ .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+  .notifications-icon{
+    color: #929292;
+    font-size: 30px;
+  }
+  .notifications-icon-highlight{
+    color: #52C1B2;
+  }
+//   .notifications-badge {
+//     height: 9;
+//     width: 16;
+//     top: 2px;
+//     right: -5px;
+//     position: absolute;
+//     background-color: #e07587;
+//     color: white;
+//     border-radius: 50%;
+//     display: inline-block;
+//     border-style: solid;
+//     border-width: 1px;
+// }
+
+// .notifications-count {
+//   font-size: 9px;
+//   padding: 3px;
+// }
+
+}
+.apply-tooltip {
+  .content {
+    min-width: 190px !important;
+  }
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-center {
+	flex: 3;
+	align-items: center;
+	justify-content: flex-end;
+	display: flex;
+	margin: 0;
+}
+
+.fixed-header {
+  padding-top: 55px;
+}
+
+.ie10splash
+{
+cursor: default !important;
+}
+
+.brand {
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  width: 100%;
+
+  .logo {
+    margin: auto 0;
+    max-height: 34px;
+  }
+
+  .brand-name {
+    visibility: hidden;
+  }
+
+  img[src=""] {
+    background: $grey09;
+    border-radius: 5px;
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: $tablet-portrait) {
+
+  .main-search {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 375px;
+    margin: 0;    
+    .algolia-autocomplete {
+      justify-content: center;
+      width: 375px;
+      margin: 0;      
+      position: relative;
+      display: flex;
+      .autocomplete {
+        padding-left: 15px;
+        padding-right: 32px;
+        color: #000;
+        font-size: 16px;
+        border-color:#6F6F6F;
+        margin: 0;
+      }
+    }
+    .search-icon {
+      font-size: 22px;
+      position: absolute;
+      color: #9C9C9C;
+      top: 8px;
+      right: 15px;
+      cursor: pointer;      
+      &.active {
+        color: #52c1b2;
+      }
+      &:hover{
+        color: #52c1b2;
+      }
+    }
+    .close-icon {
+      font-size: 22px;
+      position: absolute;
+      color: #9C9C9C;
+      right: 23px;
+      top: 15px;
+    }
+
+  }
+
+  .constrain {
+    margin: auto;
+    padding: 0;
+    width: $tablet-portrait - ($side-gutters * 2);
+  }
+
+  // quick resets:
+  .fixed-header {
+    padding-top: 40px;
+  }
+
+  .brand {
+    padding: 0;
+
+    .logo {
+      height: 50px;
+      max-height: 50px;
+    }
+
+    &.brand-no-breadcrumbs {
+      padding: 15px 0;
+    }
+  }
+  .platform-header.fixed {
+   padding-bottom: 5px;
+}
+}
+
+.apply-now-cta {
+  display: flex;
+  align-items: center;
+  a {
+    color: #2272ba;
+  }
+
+}
+
+@media screen and (min-width: $desktop-sm) {
+  .constrain {
+    padding: 0;
+    width: $desktop-sm - ($side-gutters * 2);
+  }
+  
+ 
+  .fixed-header {
+    padding-top: 40px;
+
+    &.setup-form {
+      padding-top: 60px;
+    }
+
+    &.learn-more-form {
+      padding-top: 60px;
+    }
+  }
+  .platform-header.fixed {
+    padding-bottom: 5px;
+ }
+}
+
+@media screen and (max-width: $desktop-sm - 1) { 
+  .menu-item {
+    a {
+      margin: 0 0 -1px;
+    }
+  }
+  
+  .algolia-autocomplete {
+    .autocomplete {
+      margin-left: 0;
+      margin-top: 0;
+    }
+    .aa-dropdown-menu {
+      margin-left: 0;
+    }
+  }
+}
+
+.algolia-autocomplete {
+  width: 100%;
+}
+.aa-dropdown-menu {
+  margin-left: 0;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 0.5px solid #D8D8D8;
+  max-height: 350px;
+  overflow: auto;
+  border-top: none;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+  margin-top: 10px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #000;	
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;	
+  line-height: 16px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #F3F3F3;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.algolia-autocomplete .aa-dropdown-menu.aa-with-3 {
+  margin-top: 0px;
+  width: 132%;
+  max-height: 133px;
+  margin-left: 0;
+}
+.autocomplete{
+  height: 37px;
+  width: 375px;
+  border: 1px solid #6F6F6F;
+  border-radius: 19px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.33);
+  padding-left: 5px;
+  margin-left: 30%;
+  margin-top: 8px;
+}
+.ion-ios-search-strong-ionicons {
+	height: 22px;
+	width: 17px;
+	color: #9C9C9C;
+	font-family: Ionicons;
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.user_img .avatar.avatar-sm, .avatar.avatar-sm img {
+  height: 40px;
+max-height: 40px;
+max-width: 40px;
+width: 40px;
+}
+
+.user_img .avatar.avatar-sm img, .user_img .avatar_highlight.avatar.avatar-sm, .user_img .avatar_highlight> .user_img .avatar.avatar-sm {
+  width: 40px!important;
+height: 40px!important;
+max-width: 40px!important;
+max-height: 40px!important;
+}
+
+@media screen and (max-width: $tablet-portrait - 1) {
+
+  .header-center {
+    flex: 10 5 0 !important;
+    justify-content: flex-end;
+    padding-right: 5px;    
+  }
+
+  .main-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .close-icon {
+      color: #9c9c9c;
+      font-size: 22px;
+      padding-top: 0;
+      padding-left: 20px;
+      position: absolute;
+      right: 72px;
+    }
+    .algolia-autocomplete {
+      width: 100%;
+      display: flex !important;
+      direction: ltr;
+      .autocomplete {
+        display: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 0;
+        margin-left: 0;
+        border: 1px solid lightgray;
+        box-shadow: inset 0 0px 2px 0 rgba(0,0,0,.33);
+      }
+      .aa-dropdown-menu {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 12px;
+        .aa-suggestion {
+          padding: 14px 10px;
+          border: none;
+          border-bottom: 1px solid rgba(0,0,0,0.2);
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    .search-icon {
+      color: #9C9C9C;
+      font-size: 36px;
+      padding-top: 0;
+      padding-left: 20px;
+      flex-grow: 1;
+      padding-right: 10px;
+    }
+  }
+
+  .fixed-header {
+    padding-top: 55px;
+  }
+  .mobile-search-overlay {
+    .header-left {
+      display: none;
+    }
+    .header-notifications {
+      display: none;
+    }
+    .header-center {
+      flex: 8 8 0;
+    }
+    .main-search {
+      .algolia-autocomplete  {
+        .autocomplete {
+          display: block;
+        }
+      }
+      .search-icon {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    &.constrain {
+      box-shadow: none;
+    }
+  }
+  .platform-header {
+    .constrain {
+      box-shadow: 0 0 6px #b8b8b9;
+    }
+  }
+  
+
+  /* Add this line of code to create the overlay effect 
+    <div class="overlay"></div>
+  */
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }
+}
+
+@media screen and (min-width:$tablet-portrait) and (max-width: $desktop-sm - 1) {
+
+  .main-search {
+    width: 100% !important;
+
+    .search-icon {
+      right: 15px;
+    }
+
+    .algolia-autocomplete {
+      width: 100% !important;
+      margin: 0 0 0 18px !important;
+    }
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+    .head_constrain {
+        padding: 10px 12px 5px;
+    }
+}

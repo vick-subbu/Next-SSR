@@ -1,0 +1,17 @@
+//Core CSS Variables
+@import 'reset';
+@import 'colors';
+@import 'mixins';
+@import 'variables';
+
+
+// Core CSS Element Resets
+// @import 'animations';
+@import 'body';
+@import 'buttons';
+@import 'flexbox';
+@import 'forms';
+@import 'patterns';
+
+//Core CSS Layout Resets
+@import 'page_content';
