@@ -1,0 +1,102 @@
+// Styles
+@import '../../core/colors';
+@import '../../core/mixins';
+@import '../../core/variables';
+
+theme-image {
+  pointer-events: none; // Silly IE
+  position: relative;
+  z-index: 5;
+
+  img {
+    position: relative;
+    z-index: 10;
+  }
+
+}
+
+.theme-image {
+  position: relative;
+  min-height: 128px;
+
+  img {
+    @include transition(opacity 220ms ease-in-out);
+    opacity: 1;
+    width: 100%;
+
+    &[src=""] {
+      height: 160px;
+      opacity: 0;
+    }
+  }
+
+  &.theme-image-loading {
+    display: block;
+
+    &:before{
+      content: '\f29c';
+      z-index: 2;
+      background: $picture-background;
+      border-radius: 50%;
+      color: $white;
+      padding: 40px;
+      position: absolute;
+      top: calc(50% - 60px);
+      left: calc(50% - 60px);
+      font-family: "Ionicons";
+      font-size: 40px;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: load8 1.1s infinite linear;
+        animation: load8 1.1s infinite linear;
+    }
+
+    img {
+      opacity: 0;
+    }
+
+  }
+
+  &.theme-image-zs {
+    display: block;
+
+    img {
+      display: none;
+    }
+  }
+
+  @-webkit-keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+
+}
+
+
+@media screen and (min-width: $desktop-sm) {
+    .selectDesignImage {
+    .theme-image {
+    &.theme-image-loading {
+      height: 146px;
+        }
+    }
+        }
+}
